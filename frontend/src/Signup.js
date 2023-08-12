@@ -5,6 +5,12 @@ function Signup() {
         opacity:"0.4",
         backgroundColor:'#faf0d2'
         };
+        const css = 
+        `
+    .my-element {
+        background-color: #f00;
+    }`
+    
   return (
     <>
       <div class="container min-vh-100 d-flex align-items-center">
