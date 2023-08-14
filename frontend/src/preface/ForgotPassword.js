@@ -1,7 +1,7 @@
 function forgotPassword(){
     return(
 
-        <!DOCTYPE html>
+       <>
 <html lang="en">
 
   <head>
@@ -9,7 +9,7 @@ function forgotPassword(){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap 5 Forgot Password</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   </head>
 
   <body>
@@ -28,7 +28,7 @@ function forgotPassword(){
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" id="email" class="form-control" name="email" placeholder="Enter Your Email"
-                    required="">
+                    required=""/>
                 </div>
                 <div class="mb-3 d-grid">
                   <button type="submit" class="btn btn-primary">
@@ -45,6 +45,6 @@ function forgotPassword(){
   </body>
 
 </html>
-
+</>
     );
 }

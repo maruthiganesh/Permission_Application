@@ -1,5 +1,6 @@
 //import { Card, CardHeader, CardBody, CardFooter,Text, Stack,Heading,Divider,Button,ButtonGroup } from "@chakra-ui/react";
 import { Outlet, Link } from "react-router-dom";
+import InputTag from "./InputTag";
 function Login() {
   return (
     <>
