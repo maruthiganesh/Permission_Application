@@ -4,8 +4,6 @@ const bgcss= `
 
 .account-box
 {
-    
-    
     border: 2px solid rgba(153, 153, 153, 0.75);
     width:20rem;
     border-radius: 20px !important;
@@ -20,7 +18,6 @@ const bgcss= `
     background-color: #ffffff;
     padding: 20px;
 }
-
 .logo
 {
     font-family:"Gill Sans", cursive;;
@@ -86,44 +83,44 @@ const bgcss= `
         
         
         
-        <div class="container min-vh-100 d-flex align-items-center ">
+        <div className="container min-vh-100 d-flex align-items-center ">
         <style>{bgcss}</style>
-    <div class="row" style={{margin:'auto' ,display:'flex'}} >
-        <div class="col-md-3 col-md-offset-4" >
-            <div class="account-box">
-                <div class="logo ">
+    <div className="row" style={{margin:'auto' ,display:'flex'}} >
+        <div className="col-md-3 col-md-offset-4" >
+            <div className="account-box">
+                <div className="logo ">
                     Welcome
                 </div>
-                <form class="form-signin" action="#">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Email" required autofocus />
+                <form className="form-signin" action="#">
+                <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Email" required autofocus />
                 </div>
                 <br/>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required />
+                <div className="form-group">
+                    <input type="password" className="form-control" placeholder="Password" required />
                 </div>
                 <br/>
-                <label class="checkbox">
+                <label className="checkbox">
                     <input type="checkbox" value="remember-me" />
                     Keep me signed in
                 </label>
                 <br/>
-                <button class="btn btn-lg btn-block purple-bg" type="submit">
+                <button className="btn btn-lg btn-block purple-bg" type="submit">
                     Sign in</button>
                 </form>
-                <a class="forgotLnk" href="#">I forgot my Password</a>
-                <div class="or-box">
-                    <span class="or">OR</span>
-                    <div class="row">
-                        <div class="col-md-12 row-block" style={{display:'flex',justifyContent:'center'}}>
-                            <a href="#" class="btn btn-google btn-block">Google</a>
+                <a className="forgotLnk" href="#">I forgot my Password</a>
+                <div className="or-box">
+                    <span className="or">OR</span>
+                    <div className="row">
+                        <div className="col-md-12 row-block" style={{display:'flex',justifyContent:'center'}}>
+                            <a href="#" className="btn btn-google btn-block">Google</a>
                         </div>
                     </div>
                 </div>
-                <div class="or-box row-block">
-                    <div class="row">
-                        <div class="col-md-12 row-block" style={{display:'flex',justifyContent:'center'}}>
-                            <a href="#" class="btn btn-lg btn-block yellow-bg">Register</a>
+                <div className="or-box row-block">
+                    <div className="row">
+                        <div className="col-md-12 row-block" style={{display:'flex',justifyContent:'center'}}>
+                            <a href="#" className="btn btn-lg btn-block yellow-bg">Register</a>
                         </div>
                     </div>
                 </div>
