@@ -1,13 +1,19 @@
+import { useRef } from "react";
+
+const userData = [];
+
 function InputTag(props) {
   const placestyle = {
-    opacity: "0.4",
+    opacity: "0.6",
     backgroundColor: "#faf0d2",
   };
-  const css = `
-.my-element {
-    background-color: #f00;
-}`;
-
+  const InputRef = useRef();
+  function InputHandler(event) {
+    const enteredValue = InputRef.current.valueOf;
+    const inputName = props.id;
+    userData.push({ inputName, enteredValue });
+    console.log(userData);
+  }
   return (
     <>
       <div class="form-group">
@@ -19,10 +25,13 @@ function InputTag(props) {
           type="text"
           class="form-control"
           id={props.id}
+          ref={InputRef}
           placeholder={props.description}
+          onChange={InputHandler}
         />
       </div>
     </>
   );
 }
-export default InputTag;
+export { InputTag, userData };
+// export enteredValue  ;

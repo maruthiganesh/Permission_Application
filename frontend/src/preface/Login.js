@@ -1,7 +1,34 @@
-//import { Card, CardHeader, CardBody, CardFooter,Text, Stack,Heading,Divider,Button,ButtonGroup } from "@chakra-ui/react";
-import { Outlet, Link } from "react-router-dom";
-import InputTag from "./InputTag";
+import { InputTag, userData } from "./InputTag";
+// import InputTag from "./InputTag";
+import { useState } from "react";
+import { validation } from "./validateFunc";
+
 function Login() {
+ 
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isEmailtValid, setMailValidity] = useState(true);
+  const [isPasswordValid, setPasswordValidity] = useState(true);
+
+
+  const submissionHandler = (event) => {
+    event.preventDefault();
+    console.log("Submission handler in working state");
+    console.log(userData);
+    const errorObj=validation("login",userData);
+    if(errorObj.tag === ""){
+      // redirect to home page of website
+    }
+    else{
+      setErrorMsg(errorObj.label);
+      if(errorObj.tag=="Email"){
+         setMailValidity(false);
+      }
+      if(errorObj.tag==="Password"){
+        setPasswordValidity(false);
+      }
+    }
+
+  };
   return (
     <>
       <div class="container min-vh-100 d-flex align-items-center">
@@ -11,33 +38,15 @@ function Login() {
         >
           <div class="card-body">
             <h5 class="card-title">Login</h5>
-            <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1" style={{ padding: "8px" }}>
-                  Email address / Roll number
-                </label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email or Roll number"
-                />
-                {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
-              </div>
+            <form onSubmit={submissionHandler}>
+              <InputTag
+                id="InputEmail"
+                description="Enter email or Roll number"
+              />
+              {`!isEmailValid && <p>{errorMsg}</p>`}
               <br />
-
-              <div class="form-group">
-                <label for="exampleInputPassword1" style={{ padding: "8px" }}>
-                  Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Password"
-                />
-              </div>
+              <InputTag id="InputPassword" description="Password" />
+              {`!isPasswordValid && <p>{errorMsg}</p>`}
               <a
                 href="#"
                 style={{
@@ -49,8 +58,12 @@ function Login() {
               >
                 Forgot Password?
               </a>
-              <div >
-                <button type="submit" class="btn btn-danger btn-block" style={{fontWeight:'bold',width:'100%'}}>
+              <div>
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-block"
+                  style={{ fontWeight: "bold", width: "100%" }}
+                >
                   Submit
                 </button>
               </div>
@@ -65,7 +78,14 @@ function Login() {
             }}
           >
             <small>Don't have an account? &nbsp;</small>
-            <a href="#" style={{ textDecoration: "none",fontWeight:'bold', color: "orange" }}>
+            <a
+              href="#"
+              style={{
+                textDecoration: "none",
+                fontWeight: "bold",
+                color: "orange",
+              }}
+            >
               SignUP{" "}
             </a>
           </div>

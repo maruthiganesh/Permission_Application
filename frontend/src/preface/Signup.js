@@ -1,7 +1,33 @@
-//import { Card, CardHeader, CardBody, CardFooter,Text, Stack,Heading,Divider,Button,ButtonGroup } from "@chakra-ui/react";
-import { Outlet, Link } from "react-router-dom";
-import {InputTag} from "./InputTag";
+import { InputTag, userData } from "./InputTag";
+// import InputTag from "./InputTag";
+import { useState } from "react";
+import { validation } from "./validateFunc";
+
 function Signup() {
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isEmailtValid, setMailValidity] = useState(true);
+  const [isPasswordValid, setPasswordValidity] = useState(true);
+
+  
+  const submissionHandler = (event) => {
+    event.preventDefault();
+    console.log("Submission handler in working state");
+    console.log(userData);
+    const errorObj=validation("signup",userData);
+    if(errorObj==={}){
+      // redirect to home page of website
+    }
+    else{
+      setErrorMsg(errorObj.label);
+      if(errorObj.tag=="Email"){
+         setMailValidity(false);
+      }
+      if(errorObj.tag==="Password"){
+        setPasswordValidity(false);
+      }
+    }
+
+  };
     
   return (
     <>
@@ -12,7 +38,7 @@ function Signup() {
         >
           <div class="card-body">
             <h5 class="card-title">SignUp</h5>
-            <form>
+            <form onSubmit={submissionHandler}>
               
             <InputTag  id="InputName" description="Enter your Name"></InputTag>
               <br />
