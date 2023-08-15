@@ -1,10 +1,56 @@
+
 function isValidEmail(email){
     // check whether it is a vaild email or not
+    return /\S+@\S+\.\S+/.test(email);
+
     return true; 
 }
 
 function isValidPassword(password){
     // check whether enter text can be assigned as password or not 
+
+
+    /*
+                          //approach 1
+
+    let regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    return regularExpression.test(password);
+    */
+
+                        //approach2
+    const special_chars=new Set(["!","#","$","@","%","^","&","*","(",")","+","_",",","<","=",">",'"',".",":",";","'","~","`","{","}","[","]","|","/",' ']);
+    special_chars.add('\\');
+    errors = [];
+    if (password.length < 8) {
+        errors.push("Your password must contain at least 8 characters");
+    }
+    if (password.search(/[a-z]/) < 0) {
+        errors.push("Your password must contain at least one letter."); 
+    }
+    if (password.search(/[A-Z]/) < 0) {
+        errors.push("Your password must contain at least one letter.");
+    }
+    if (password.search(/[0-9]/) < 0) {
+        errors.push("Your password must contain at least one digit.");
+    }
+    let flag=0;
+    let len=password.length
+    for(let i=0;i<len;i++)
+    {
+        if(special_chars.has(password[i]))
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        errors.push("Your password must contain at least one special charecter");
+    }
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }
     return true;
 }
 
@@ -15,6 +61,7 @@ function isUserFound(enteredUserId){
 
 function isPasswordMatches(userId,EnteredPassword){
    // check whether password matches with database password
+   
    return true;
 }
 
